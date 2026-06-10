@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Транспортная компания</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="top-menu">
+        <h2>Компания</h2>
+        <div class="menu-buttons">
+            <button class="mode-btn" data-target="admin-menu">Админ</button>
+            <button class="mode-btn" data-target="worker-menu">Клиенты и заказы</button>
+        </div>
+    </nav>
+
+    <nav class="sub-menu" id="admin-menu">
+        <button class="nav-btn" data-target="employees-page">Управление сотрудниками</button>
+        <button class="nav-btn" data-target="autopark-page">Управление автопарком</button>
+    </nav>
+
+    <nav class="sub-menu" id="worker-menu">
+        <button class="nav-btn" data-target="client-page">Регистрация клиента</button>
+        <button class="nav-btn" data-target="order-page">Регистрация заказа</button>
+        <button class="nav-btn" data-target="report-page">Отчёты о заказах</button>
+    </nav>
+
+    <div class="page" id="employees-page">
+        <h2>Список сотрудников</h2>
+        <div class="emp-table-page">
+            <div class="emp-table">
+                <table>
+                    <thead>
+                        <td>ФИО</td>
+                        <td>Email</td>
+                        <td>Телефон</td>
+                        <td>Адрес</td>
+                    </thead>
+                    <tr>
+                        <td>Ильяху А.В.</td>
+                        <td>iliachu.av@trpr.com</td>
+                        <td>+375 44 440 23-12</td>
+                        <td>г. А, ул. Б, д. 1</td>
+                    </tr>
+                    <tr>
+                        <td>Аркадий А.А.</td>
+                        <td>arkadii.aa@trpr.com</td>
+                        <td>+375 11 111 11-11</td>
+                        <td>г. А, ул. А, д. 2</td>
+                    </tr>
+                    <tr>
+                        <td>Арамейко Г.В.</td>
+                        <td>arameiko.gv@trpr.com</td>
+                        <td>+375 44 440 23-12</td>
+                        <td>г. Б, ул. Б, д. 1</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="emp-table-btns">
+                <button class="emp-btn" id="add-emp">Добавить сотрудника</button>
+                <button class="emp-btn" id="re-emp">Изменить сотрудника</button>
+                <button class="emp-btn" id="delete-emp">Удалить сотрудника</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page" id="autopark-page">
+        <h2>Управление автопарком</h2>
+        <p>Здесь будет 2.</p>
+    </div>
+
+    <div class="page" id="client-page">
+        <h2>Регистрация клиента</h2>
+        <p>Здесь будет 3.</p>
+    </div>
+
+    <div class="page" id="order-page">
+        <h2>Регистрация заказа</h2>
+        <p>Здесь будет 4.</p>
+    </div>
+
+    <div class="page" id="report-page">
+        <h2>Отчёты о заказах</h2>
+        <p>Здесь будет 5</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+<!-- Cайт траспортной компании. Приложение работает в двух режимах
+1) Администрирование.
+1.1) Управление сотрудниками - создание, удаление, редактирование. 
+    Сотрудник имеет ФИО, почта, телефон, адрес. 
+    Важно валидировать данные на корректность
+1.2) Управление автопарком - создание, удаление, редактирование. 
+    Транспорт имеет название, дату, объем, 
+    тип (Бортовые, Тентованные, Фургоны, Рефрижераторы, Самосвалы) и 
+    категорию (Малотоннажные (N1), Среднетоннажные (N2), Крупнотоннажные (N3)). 
+    Важно валидировать данные на корректность
+2) Работа  сотрудников с клиентами и заказами.
+2.1) Регистрация клиента
+2.2) Регистрация заказа
+2.3) Отчеты о заказах
+
+В качестве хранения данных пока можно использовать локальное хранилище браузера. 
+Если дела пойдут хорошо, можно подключить внешний бекенд с БД. -->

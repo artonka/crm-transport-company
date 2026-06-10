@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.top-menu {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-menu h2 {
+    margin: 0;
+}
+
+.menu-buttons {
+    margin-top: 15px;
+}
+
+.mode-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.mode-btn:hover,
+.mode-btn.active:hover {
+    opacity: 0.8;
+}
+
+.mode-btn.active {
+    background-color: #4cb050;
+}
+
+.sub-menu {
+    display: none;
+    background-color: #444;
+    justify-content: center;
+}
+
+.sub-menu.active-menu {
+    display: flex;
+}
+
+.nav-btn {
+    background-color: transparent;
+    color: white;
+    padding: 8px 15px;
+    border: 0;
+    margin: 0;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: #555;
+}
+
+.nav-btn.active {
+    font-weight: bold;
+    border-bottom: 5px solid #4CAF50;
+}
+
+
+.page {
+    display: none;
+    background: #ededed;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.page.active {
+    display: block;
+}
+
+.emp-table {
+    display: flex;
+}
+
+table {
+    margin-bottom: 20px;
+}
+td {
+    padding: 3px;
+    border: 2px solid black
+}
+
+.emp-btn {
+    font-size: 15px;
+    padding: 6px 10px;
+    margin-right: 6px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.emp-btn:hover {
+    cursor: pointer;
+}
