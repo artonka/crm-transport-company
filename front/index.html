@@ -5,53 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Транспортная компания</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav class="top-menu">
         <h2>Компания</h2>
-        <div class="menu-buttons">
-            <button class="mode-btn" data-target="admin-menu">Админ</button>
-            <button class="mode-btn" data-target="worker-menu">Клиенты и заказы</button>
+        <div class="top-menu-buttons">
+            <button class="top-btn" data-target="admin-menu">Администрирование</button>
+            <button class="top-btn" data-target="worker-menu">Клиенты и заказы</button>
         </div>
     </nav>
 
     <nav class="sub-menu" id="admin-menu">
-        <button class="nav-btn" data-target="employees-page">Управление сотрудниками</button>
-        <button class="nav-btn" data-target="autopark-page">Управление автопарком</button>
+        <button class="sub-btn" data-target="employees-page">Управление сотрудниками</button>
+        <button class="sub-btn" data-target="autopark-page">Управление автопарком</button>
     </nav>
 
     <nav class="sub-menu" id="worker-menu">
-        <button class="nav-btn" data-target="client-page">Регистрация клиента</button>
-        <button class="nav-btn" data-target="order-page">Регистрация заказа</button>
-        <button class="nav-btn" data-target="report-page">Отчёты о заказах</button>
+        <button class="sub-btn" data-target="client-page">Регистрация клиента</button>
+        <button class="sub-btn" data-target="order-page">Регистрация заказа</button>
+        <button class="sub-btn" data-target="report-page">Отчёты о заказах</button>
     </nav>
 
     <div class="page" id="employees-page">
         <h2>Список сотрудников</h2>
         <div class="emp-table-page">
             <div class="emp-table">
-                <table>
+                <table id="emp-table">
                     <thead>
+                        <td>Id</td>
                         <td>ФИО</td>
                         <td>Email</td>
                         <td>Телефон</td>
                         <td>Адрес</td>
                     </thead>
-                    <tr>
+                    <tr data-id="1">
+                        <td>1</td>
                         <td>Ильяху А.В.</td>
                         <td>iliachu.av@trpr.com</td>
                         <td>+375 44 440 23-12</td>
                         <td>г. А, ул. Б, д. 1</td>
                     </tr>
-                    <tr>
+                    <tr data-id="2">
+                        <td>2</td>
                         <td>Аркадий А.А.</td>
                         <td>arkadii.aa@trpr.com</td>
                         <td>+375 11 111 11-11</td>
                         <td>г. А, ул. А, д. 2</td>
                     </tr>
-                    <tr>
+                    <tr data-id="3">
+                        <td>3</td>
                         <td>Арамейко Г.В.</td>
                         <td>arameiko.gv@trpr.com</td>
                         <td>+375 44 440 23-12</td>
@@ -60,9 +67,47 @@
                 </table>
             </div>
             <div class="emp-table-btns">
-                <button class="emp-btn" id="add-emp">Добавить сотрудника</button>
-                <button class="emp-btn" id="re-emp">Изменить сотрудника</button>
-                <button class="emp-btn" id="delete-emp">Удалить сотрудника</button>
+                <button class="emp-btn" id="add-emp-btn" data-target="add-emp-form-container">Добавить</button>
+                <button class="emp-btn" id="change-emp-btn" data-target="change-emp-form-container">Изменить</button>
+                <button class="emp-action-btn" id="delete-emp-btn">Удалить</button>
+            </div>
+            <div class="emp-form-container" id="add-emp-form-container">
+                <form action="" method="get" id="emp-add-form">
+                    <div class="add-form-input">
+                        <input type="text" id="add-name" placeholder="ФИО..." required />
+                    </div>
+                    <div class="add-form-input">
+                        <input type="email" id="add-email" placeholder="Email..." required />
+                    </div>
+                    <div class="add-form-input">
+                        <input type="tel" id="add-phone" placeholder="Номер телефона..." required />
+                    </div>
+                    <div class="add-form-input">
+                        <input type="text" id="add-address" placeholder="Адрес..." required />
+                    </div>
+                    <div class="add-form-input">
+                        <input class="form-btn" type="submit" value="Добавить сотрудника" />
+                    </div>
+                </form>
+            </div>
+            <div class="emp-form-container" id="change-emp-form-container">
+                <form action="" method="get" id="emp-change-form">
+                    <div class="change-form-input">
+                        <input type="text" id="change-name" placeholder="ФИО..." required />
+                    </div>
+                    <div class="change-form-input">
+                        <input type="email" id="change-email" placeholder="Email..." required />
+                    </div>
+                    <div class="change-form-input">
+                        <input type="tel" id="change-phone" placeholder="Номер телефона..." required />
+                    </div>
+                    <div class="change-form-input">
+                        <input type="text" id="change-address" placeholder="Адрес..." required />
+                    </div>
+                    <div class="change-form-input">
+                        <input class="form-btn" type="submit" value="Сохранить изменения" />
+                    </div>
+                </form>
             </div>
         </div>
 
