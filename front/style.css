@@ -79,7 +79,8 @@ body {
   display: block;
 }
 
-.emp-table-page {
+.employees-table-page,
+.autopark-table-page {
   display: flex;
 }
 
@@ -88,7 +89,8 @@ table {
   border-collapse: collapse;
 }
 
-td {
+td,
+th {
   padding: 5px;
 }
 
@@ -96,14 +98,13 @@ tr {
   border: 1.1px solid black;
 }
 
-tr:hover {
+tbody tr:hover {
   background-color: #dedede;
 }
 
 thead {
   cursor: auto;
   color: #ffffff;
-  text-align: center;
   background-color: #4898ff;
 }
 
@@ -112,16 +113,18 @@ thead {
   background-color: #ccc;
 }
 
-.emp-form-container {
+.form-container {
   display: none;
 }
 
-.emp-form-container.active {
+.form-container.active {
   display: table-row;
 }
 
-input {
+input,
+select {
   display: table-cell;
+  margin-right: 7px;
   margin-bottom: 7px;
 }
 
@@ -129,14 +132,13 @@ input {
   cursor: pointer;
 }
 
-.emp-table-btns {
+.table-btns {
   display: flex;
   flex-direction: column;
   margin: 5px 20px 0;
 }
 
-.emp-btn,
-.emp-action-btn,
+.table-btn,
 .form-btn {
   background-color: #ddd;
   padding: 6px 10px;
@@ -145,18 +147,18 @@ input {
   border-radius: 10px;
 }
 
-.emp-btn:hover,
-.emp-action-btn:hover,
-.emp-btn.active {
+.table-btn:hover,
+.table-btn.active {
   background-color: #f7f7b3;
   cursor: pointer;
 }
 
-.emp-btn:nth-child(2).active,
-.emp-btn:nth-child(2):hover {
+.table-btn:nth-child(2).active,
+.table-btn:nth-child(2):hover {
   background-color: lightskyblue;
 }
 
-.emp-action-btn:hover {
+.table-btn:nth-child(3).active,
+.table-btn:nth-child(3):hover {
   background-color: lightcoral;
 }

@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Транспортная компания</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -33,89 +31,174 @@
 
     <div class="page" id="employees-page">
         <h2>Список сотрудников</h2>
-        <div class="emp-table-page">
-            <div class="emp-table">
-                <table id="emp-table">
+        <div class="employees-table-page">
+            <div class="employees-table">
+                <table id="employees-table">
                     <thead>
-                        <td>Id</td>
-                        <td>ФИО</td>
-                        <td>Email</td>
-                        <td>Телефон</td>
-                        <td>Адрес</td>
+                        <tr>
+                            <th>Id</th>
+                            <th>ФИО</th>
+                            <th>Email</th>
+                            <th>Телефон</th>
+                            <th>Адрес</th>
+                        </tr>
                     </thead>
-                    <tr data-id="1">
-                        <td>1</td>
-                        <td>Ильяху А.В.</td>
-                        <td>iliachu.av@trpr.com</td>
-                        <td>+375 44 440 23-12</td>
-                        <td>г. А, ул. Б, д. 1</td>
-                    </tr>
-                    <tr data-id="2">
-                        <td>2</td>
-                        <td>Аркадий А.А.</td>
-                        <td>arkadii.aa@trpr.com</td>
-                        <td>+375 11 111 11-11</td>
-                        <td>г. А, ул. А, д. 2</td>
-                    </tr>
-                    <tr data-id="3">
-                        <td>3</td>
-                        <td>Арамейко Г.В.</td>
-                        <td>arameiko.gv@trpr.com</td>
-                        <td>+375 44 440 23-12</td>
-                        <td>г. Б, ул. Б, д. 1</td>
-                    </tr>
                 </table>
             </div>
-            <div class="emp-table-btns">
-                <button class="emp-btn" id="add-emp-btn" data-target="add-emp-form-container">Добавить</button>
-                <button class="emp-btn" id="change-emp-btn" data-target="change-emp-form-container">Изменить</button>
-                <button class="emp-action-btn" id="delete-emp-btn">Удалить</button>
+            <div class="table-btns">
+                <button class="table-btn" id="add-employees-btn" data-target="add-employees-form-container">Добавить</button>
+                <button class="table-btn" id="change-employees-btn"
+                    data-target="change-employees-form-container">Изменить</button>
+                <button class="table-btn" id="delete-employees-btn" data-target="delete-employees-form-container">Удалить</button>
             </div>
-            <div class="emp-form-container" id="add-emp-form-container">
-                <form action="" method="get" id="emp-add-form">
+            <div class="form-container" id="add-employees-form-container">
+                <form action="" method="get" id="employees-add-form">
                     <div class="add-form-input">
-                        <input type="text" id="add-name" placeholder="ФИО..." required />
+                        <input type="text" id="add-employees-name" placeholder="ФИО..." required />
                     </div>
                     <div class="add-form-input">
-                        <input type="email" id="add-email" placeholder="Email..." required />
+                        <input type="email" id="add-employees-email" placeholder="Email..." required />
                     </div>
                     <div class="add-form-input">
-                        <input type="tel" id="add-phone" placeholder="Номер телефона..." required />
+                        <input type="tel" id="add-employees-phone" placeholder="Номер телефона..." required />
                     </div>
                     <div class="add-form-input">
-                        <input type="text" id="add-address" placeholder="Адрес..." required />
+                        <input type="text" id="add-employees-address" placeholder="Адрес..." required />
                     </div>
                     <div class="add-form-input">
                         <input class="form-btn" type="submit" value="Добавить сотрудника" />
                     </div>
                 </form>
             </div>
-            <div class="emp-form-container" id="change-emp-form-container">
-                <form action="" method="get" id="emp-change-form">
+            <div class="form-container" id="change-employees-form-container">
+                <form action="" method="get" id="employees-change-form">
                     <div class="change-form-input">
-                        <input type="text" id="change-name" placeholder="ФИО..." required />
+                        <input type="text" id="change-employees-name" placeholder="ФИО..." required />
                     </div>
                     <div class="change-form-input">
-                        <input type="email" id="change-email" placeholder="Email..." required />
+                        <input type="email" id="change-employees-email" placeholder="Email..." required />
                     </div>
                     <div class="change-form-input">
-                        <input type="tel" id="change-phone" placeholder="Номер телефона..." required />
+                        <input type="tel" id="change-employees-phone" placeholder="Номер телефона..." required />
                     </div>
                     <div class="change-form-input">
-                        <input type="text" id="change-address" placeholder="Адрес..." required />
+                        <input type="text" id="change-employees-address" placeholder="Адрес..." required />
                     </div>
                     <div class="change-form-input">
                         <input class="form-btn" type="submit" value="Сохранить изменения" />
                     </div>
                 </form>
             </div>
+            <div class="form-container" id="delete-employees-form-container">
+                <form action="" method="get" id="employees-delete-form">
+                    <div class="delete-form-input">
+                        <p>Вы действительно хотите удалить этого сотрудника?</p>
+                    </div>
+                    <input class="form-btn" type="submit" value="Да" />
+                    <input class="form-btn" type="submit" value="Нет" />
+                </form>
+            </div>
         </div>
-
     </div>
 
     <div class="page" id="autopark-page">
-        <h2>Управление автопарком</h2>
-        <p>Здесь будет 2.</p>
+        <h2>Список транспортных средств</h2>
+        <div class="autopark-table-page">
+            <div class="autopark-table">
+                <table id="autopark-table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Модель</th>
+                            <th>Дата регистрации</th>
+                            <th>Объем</th>
+                            <th>Тип кузова</th>
+                            <th>Категория</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table-btns">
+                <button class="table-btn" id="add-autopark-btn" data-target="add-autopark-form-container">Добавить</button>
+                <button class="table-btn" id="change-autopark-btn" data-target="change-autopark-form-container">Изменить</button>
+                <button class="table-btn" id="delete-autopark-btn" data-target="delete-autopark-form-container">Удалить</button>
+            </div>
+            <div class="form-container" id="add-autopark-form-container">
+                <form action="" method="get" id="autopark-add-form">
+                    <div class="add-form-input">
+                        <input type="text" id="add-autopark-name" placeholder="Модель..." required />
+                    </div>
+                    <div class="add-form-input">
+                        <input type="date" id="add-autopark-date" placeholder="Дата регистрации..." required />
+                    </div>
+                    <div class="add-form-input">
+                        <input type="text" id="add-autopark-volume" placeholder="Объем кузова..." required />
+                    </div>
+                    <div class="add-form-input">
+                        <select id="add-autopark-type" required>
+                            <option value="" disabled hidden selected>Тип кузова...</option>
+                            <option>Бортовой</option>
+                            <option>Тентованный</option>
+                            <option>Фургон</option>
+                            <option>Рефрижератор</option>
+                            <option>Самосвал</option>
+                        </select>
+                    </div>
+                    <div class="add-form-input">
+                        <select id="add-autopark-category" required>
+                            <option value="" disabled hidden selected>Категория...</option>
+                            <option>Малотоннажный</option>
+                            <option>Среднетоннажный</option>
+                            <option>Крупнотоннажный</option>
+                        </select>
+                    </div>
+                    <div class="add-form-input">
+                        <input class="form-btn" type="submit" value="Добавить транспортное средство" />
+                    </div>
+                </form>
+            </div>
+            <div class="form-container" id="change-autopark-form-container">
+                <form action="" method="get" id="autopark-change-form">
+                    <div class="change-form-input">
+                        <input type="text" id="change-autopark-name" placeholder="Модель..." required />
+                    </div>
+                    <div class="change-form-input">
+                        <input type="date" id="change-autopark-date" placeholder="Дата регистрации..." required />
+                    </div>
+                    <div class="change-form-input">
+                        <input type="text" id="change-autopark-volume" placeholder="Объем кузова..." required />
+                    </div>
+                    <div class="change-form-input">
+                        <select id="change-autopark-type" required>
+                            <option>Бортовой</option>
+                            <option>Тентованный</option>
+                            <option>Фургон</option>
+                            <option>Рефрижератор</option>
+                            <option>Самосвал</option>
+                        </select>
+                    </div>
+                    <div class="change-form-input">
+                        <select id="change-autopark-category" required>
+                            <option>Малотоннажный</option>
+                            <option>Среднетоннажный</option>
+                            <option>Крупнотоннажный</option>
+                        </select>
+                    </div>
+                    <div class="change-form-input">
+                        <input class="form-btn" type="submit" value="Сохранить изменения" />
+                    </div>
+                </form>
+            </div>
+            <div class="form-container" id="delete-autopark-form-container">
+                <form action="" method="get" id="autopark-delete-form">
+                    <div class="delete-form-input">
+                        <p>Вы действительно хотите удалить это ТС?</p>
+                    </div>
+                    <input class="form-btn" type="submit" value="Да" />
+                    <input class="form-btn" type="submit" value="Нет" />
+                </form>
+            </div>
+        </div>
     </div>
 
     <div class="page" id="client-page">
@@ -136,22 +219,3 @@
 </body>
 
 </html>
-
-
-<!-- Cайт траспортной компании. Приложение работает в двух режимах
-1) Администрирование.
-1.1) Управление сотрудниками - создание, удаление, редактирование. 
-    Сотрудник имеет ФИО, почта, телефон, адрес. 
-    Важно валидировать данные на корректность
-1.2) Управление автопарком - создание, удаление, редактирование. 
-    Транспорт имеет название, дату, объем, 
-    тип (Бортовые, Тентованные, Фургоны, Рефрижераторы, Самосвалы) и 
-    категорию (Малотоннажные (N1), Среднетоннажные (N2), Крупнотоннажные (N3)). 
-    Важно валидировать данные на корректность
-2) Работа  сотрудников с клиентами и заказами.
-2.1) Регистрация клиента
-2.2) Регистрация заказа
-2.3) Отчеты о заказах
-
-В качестве хранения данных пока можно использовать локальное хранилище браузера. 
-Если дела пойдут хорошо, можно подключить внешний бекенд с БД. -->
