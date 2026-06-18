@@ -82,11 +82,19 @@ body {
 .employees-table-page,
 .autopark-table-page {
   display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 table {
   cursor: pointer;
   border-collapse: collapse;
+}
+
+thead {
+  cursor: auto;
+  color: #ffffff;
+  background-color: #4898ff;
 }
 
 td,
@@ -102,40 +110,15 @@ tbody tr:hover {
   background-color: #dedede;
 }
 
-thead {
-  cursor: auto;
-  color: #ffffff;
-  background-color: #4898ff;
-}
-
 .selected-row,
 .selected-row:hover {
   background-color: #ccc;
 }
 
-.form-container {
-  display: none;
-}
-
-.form-container.active {
-  display: table-row;
-}
-
-input,
-select {
-  display: table-cell;
-  margin-right: 7px;
-  margin-bottom: 7px;
-}
-
-.form-btn:hover {
-  cursor: pointer;
-}
-
-.table-btns {
+.table-btn-container {
   display: flex;
   flex-direction: column;
-  margin: 5px 20px 0;
+  margin: 0;
 }
 
 .table-btn,
@@ -161,4 +144,23 @@ select {
 .table-btn:nth-child(3).active,
 .table-btn:nth-child(3):hover {
   background-color: lightcoral;
+}
+
+.form-container {
+  display: none;
+}
+
+.form-container.active {
+  display: table-row;
+}
+
+.form-btn:hover {
+  cursor: pointer;
+}
+
+input,
+select {
+  display: table-cell;
+  margin-right: 7px;
+  margin-bottom: 7px;
 }
