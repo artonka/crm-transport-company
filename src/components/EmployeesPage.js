@@ -1,97 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import usePageState from '../hooks/UsePageState';
+import { Table, TableButtons, DeleteForm } from './UIElements';
+
+const employeesHeaders = ['Id', 'ФИО', 'Email', 'Телефон', 'Адрес'];
+const employeesFields = ['id', 'name', 'email', 'phone', 'address'];
 
 export default function EmployeesPage() {
-    const [employees, setEmployees] = useState(() => {
-        const saved = localStorage.getItem('employeesList');
-        return saved ? JSON.parse(saved) : [];
-    });
-
-    useEffect(() => {
-        localStorage.setItem('employeesList', JSON.stringify(employees));
-    }, [employees]);
-
-    const [selectedId, setSelectedId] = useState(null);
-    const [activeForm, setActiveForm] = useState(null);
-    const [formData, setFormData] = useState({ name: '', email: '', phone: '', address: '' });
-
-    const handleActionClick = (action) => {
-        if (activeForm === action) {
-            setActiveForm(null);
-            return;
-        }
-
-        if (action === 'add') {
-            setFormData({ name: '', email: '', phone: '', address: '' });
-            setActiveForm('add');
-        } else if (action === 'change' || action === 'delete') {
-            if (!selectedId) return alert('Выберите объект в таблице.');
-
-            if (action === 'change') {
-                const emp = employees.find(e => e.id === selectedId);
-                setFormData({ name: emp.name, email: emp.email, phone: emp.phone, address: emp.address });
-            }
-            setActiveForm(action);
-        }
-    };
-
-    const handleInputChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleAddSubmit = (e) => {
-        e.preventDefault();
-        const newId = employees.length > 0 ? Math.max(...employees.map(e => e.id)) + 1 : 1;
-        setEmployees([...employees, { id: newId, ...formData }]);
-        setActiveForm(null);
-    };
-
-    const handleChangeSubmit = (e) => {
-        e.preventDefault();
-        setEmployees(employees.map(emp => emp.id === selectedId ? { id: selectedId, ...formData } : emp));
-        setActiveForm(null);
-        setSelectedId(null);
-    };
-
-    const handleDelete = (confirm) => {
-        if (confirm) {
-            setEmployees(employees.filter(emp => emp.id !== selectedId));
-            setSelectedId(null);
-        }
-        setActiveForm(null);
-    };
+    const {
+        items: employees,
+        setItems: setEmployees,
+        selectedId, setSelectedId,
+        activeForm, setActiveForm,
+        formData, setFormData,
+        initialFormState,
+        handleActionClick,
+        handleInputChange,
+        handleAddSubmit,
+        handleChangeSubmit,
+        handleDeleteSubmit
+    } = usePageState('employeesList', { name: '', email: '', phone: '', address: '' })
 
     return (
         <div className="page active">
             <h2>Список сотрудников</h2>
             <div className="employees-table-page">
-                <div className="employees-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Id</th><th>ФИО</th><th>Email</th><th>Телефон</th><th>Адрес</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {employees.map(emp => (
-                                <tr
-                                    key={emp.id}
-                                    className={selectedId === emp.id ? 'selected-row' : ''}
-                                    onClick={() => setSelectedId(selectedId === emp.id ? null : emp.id)}
-                                >
-                                    <td>{emp.id}</td><td>{emp.name}</td><td>{emp.email}</td><td>{emp.phone}</td><td>{emp.address}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-                <div className="table-btn-container">
-                    <button className={`table-btn ${activeForm === 'add' ? 'active' : ''}`}
-                        onClick={() => handleActionClick('add')}>Добавить</button>
-                    <button className={`table-btn ${activeForm === 'change' ? 'active' : ''}`}
-                        onClick={() => handleActionClick('change')}>Изменить</button>
-                    <button className={`table-btn ${activeForm === 'delete' ? 'active' : ''}`}
-                        onClick={() => handleActionClick('delete')}>Удалить</button>
-                </div>
+                <Table className={"employees-table"} headers={employeesHeaders} fields={employeesFields} items={employees}
+                    selectedId={selectedId} setSelectedId={setSelectedId} />
+                <TableButtons activeForm={activeForm} handleActionClick={handleActionClick} />
                 {(activeForm === 'add' || activeForm === 'change') && (
                     <div className="form-container active">
                         <form onSubmit={activeForm === 'add' ? handleAddSubmit : handleChangeSubmit}>
@@ -109,13 +44,7 @@ export default function EmployeesPage() {
                     </div>
                 )}
                 {activeForm === 'delete' && (
-                    <div className="form-container active">
-                        <div className="form-text">Вы действительно хотите удалить этого сотрудника?</div>
-                        <button type="button" className="form-btn"
-                            onClick={() => handleDelete(true)}>Да</button>
-                        <button type="button" className="form-btn"
-                            onClick={() => handleDelete(false)}>Нет</button>
-                    </div>
+                    <DeleteForm selectedId={selectedId} handleDeleteSubmit={handleDeleteSubmit} />
                 )}
             </div>
         </div>
