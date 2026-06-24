@@ -26,14 +26,10 @@ export default function App() {
                 <div className="top-menu-buttons">
                     <button className={`top-btn ${activeTop === 'admin' ? 'active' : ''}`}
                         onClick={() => handleTopClick('admin')}
-                    >
-                        Администрирование
-                    </button>
+                    >Администрирование</button>
                     <button className={`top-btn ${activeTop === 'worker' ? 'active' : ''}`}
                         onClick={() => handleTopClick('worker')}
-                    >
-                        Клиенты и заказы
-                    </button>
+                    >Клиенты и заказы</button>
                 </div>
             </nav>
             <nav className={`sub-menu ${activeTop === 'admin' ? 'active' : ''}`}>

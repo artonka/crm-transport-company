@@ -8,11 +8,9 @@ const employeesFields = ['id', 'name', 'email', 'phone', 'address'];
 export default function EmployeesPage() {
     const {
         items: employees,
-        setItems: setEmployees,
         selectedId, setSelectedId,
-        activeForm, setActiveForm,
-        formData, setFormData,
-        initialFormState,
+        activeForm,
+        formData,
         handleActionClick,
         handleInputChange,
         handleAddSubmit,

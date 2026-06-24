@@ -64,11 +64,10 @@ export default function usePageState(storageKey, initialFormState) {
     };
 
     return {
-        items, setItems,
+        items,
         selectedId, setSelectedId,
-        activeForm, setActiveForm,
-        formData, setFormData,
-        initialFormState,
+        activeForm,
+        formData,
         handleActionClick,
         handleInputChange,
         handleAddSubmit,

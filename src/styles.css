@@ -4,45 +4,42 @@ body {
 }
 
 .top-menu {
-    background-color: #333;
-    color: white;
-    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #333;
+    padding: 15px;
+    color: white;
 }
 
 .top-menu h2 {
     margin: 0;
 }
 
-.top-menu-buttons {
-    margin-top: 15px;
-}
-
 .top-btn {
     background-color: transparent;
-    color: white;
-    border: 1px solid white;
-    padding: 8px 15px;
     margin-right: 5px;
-    cursor: pointer;
-    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 15px;
     font-weight: bold;
+    color: white;
+    cursor: pointer;
 }
 
 .top-btn.active {
     background-color: #4cb050;
 }
 
-.top-btn:hover {
-    opacity: 0.8;
+.top-btn:hover,
+.sub-btn:hover {
+    background-color: #555;
 }
 
 .sub-menu {
     display: none;
-    background-color: #444;
     justify-content: center;
+    background-color: #444;
 }
 
 .sub-menu.active {
@@ -51,11 +48,10 @@ body {
 
 .sub-btn {
     background-color: transparent;
-    color: white;
-    padding: 15px 15px;
-    border: 0;
-    margin: 0;
     margin-right: 15px;
+    padding: 15px;
+    border: 0;
+    color: white;
     cursor: pointer;
 }
 
@@ -63,16 +59,12 @@ body {
     border-bottom: 5px solid #4caf50;
 }
 
-.sub-btn:hover {
-    background-color: #555;
-}
-
 .page {
     display: none;
-    background: #efefef;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: #efefef;
     margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .page.active {
@@ -87,14 +79,12 @@ body {
 }
 
 table {
-    cursor: pointer;
     border-collapse: collapse;
 }
 
 thead {
-    cursor: auto;
-    color: #ffffff;
     background-color: #4898ff;
+    color: #ffffff;
 }
 
 td,
@@ -108,6 +98,7 @@ tr {
 
 tbody tr:hover {
     background-color: #dedede;
+    cursor: pointer;
 }
 
 .selected-row,
@@ -123,9 +114,11 @@ tbody tr:hover {
 
 .table-btn,
 .form-btn {
+    display: flex;
+    flex-direction: column;
     background-color: #ddd;
-    padding: 6px 10px;
     margin-bottom: 6px;
+    padding: 6px 10px;
     border: 0;
     border-radius: 10px;
 }
@@ -154,12 +147,17 @@ tbody tr:hover {
     display: block;
 }
 
-.form-btn:hover {
-    cursor: pointer;
-}
-
 .form-container form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.form-text {
+    margin-bottom: 10px;
+}
+
+.form-btn:hover {
+    background-color: #999;
+    cursor: pointer;
 }
