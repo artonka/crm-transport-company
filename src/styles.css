@@ -40,6 +40,7 @@ body {
     display: none;
     justify-content: center;
     background-color: #444;
+    height: 50px;
 }
 
 .sub-menu.active {
@@ -60,19 +61,14 @@ body {
 }
 
 .page {
-    display: none;
+    display: block;
     background-color: #efefef;
     margin: 20px;
     padding: 20px;
     border-radius: 15px;
 }
 
-.page.active {
-    display: block;
-}
-
-.employees-table-page,
-.autopark-table-page {
+.table-page {
     display: flex;
     align-items: flex-start;
     gap: 20px;
@@ -140,10 +136,6 @@ tbody tr:hover {
 }
 
 .form-container {
-    display: none;
-}
-
-.form-container.active {
     display: block;
 }
 
@@ -153,8 +145,21 @@ tbody tr:hover {
     gap: 10px;
 }
 
+.form-container input,
+.form-container select {
+    width: 250px;
+    box-sizing: border-box;
+}
+
 .form-text {
     margin-bottom: 10px;
+}
+
+.error-text {
+    margin: 0;
+    color: #ff4141;
+    font-size: 11px;
+    font-weight: bold;
 }
 
 .form-btn:hover {

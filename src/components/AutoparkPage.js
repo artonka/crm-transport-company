@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import usePageState from '../hooks/UsePageState';
-import { Table, TableButtons, DeleteForm } from './UIElements';
+import { getListFromStorage } from '../utils/Storage';
+import { Table, TableButtons, DeleteForm, OrdersForm } from './UIElements';
 
 const autoparkHeaders = ['Id', 'Модель', 'Дата регистрации', 'Объем', 'Тип кузова', 'Категория'];
 const autoparkFields = ['id', 'name', 'date', 'volume', 'type', 'category'];
@@ -12,6 +13,7 @@ export default function AutoparkPage() {
         selectedId, setSelectedId,
         activeForm,
         formData,
+        errors,
         handleActionClick,
         handleInputChange,
         handleAddSubmit,
@@ -19,22 +21,32 @@ export default function AutoparkPage() {
         handleDeleteSubmit
     } = usePageState('autoparkList', { name: '', date: '', volume: '', type: '', category: '' })
 
+    const allOrders = getListFromStorage('ordersList');
+    const autoOrders = allOrders.filter(order => order.autoId == selectedId);
+
+
     return (
-        <div className="page active">
+        <div className="page">
             <h2>Список транспортных средств</h2>
-            <div className="autopark-table-page">
+            <div className="table-page">
                 <Table className="autopark-table" headers={autoparkHeaders} fields={autoparkFields} items={autopark}
                     selectedId={selectedId} setSelectedId={setSelectedId} />
-                <TableButtons activeForm={activeForm} handleActionClick={handleActionClick} />
+                <TableButtons activeForm={activeForm} handleActionClick={handleActionClick} showOrdersButton={true} />
                 {(activeForm === 'add' || activeForm === 'change') && (
-                    <div className="form-container active">
+                    <div className="form-container">
                         <form onSubmit={activeForm === 'add' ? handleAddSubmit : handleChangeSubmit}>
                             <input name="name" value={formData.name} onChange={handleInputChange}
                                 placeholder="Модель..." required />
-                            <input name="date" value={formData.date} onChange={handleInputChange}
-                                type="date" required />
-                            <input name="volume" value={formData.volume} onChange={handleInputChange}
-                                placeholder="Объем кузова..." required />
+                            <div className="form-input-error">
+                                <input name="date" value={formData.date} onChange={handleInputChange}
+                                    type="date" required />
+                                {errors.date && <p className='error-text'>{errors.date}</p>}
+                            </div>
+                            <div className="form-input-error">
+                                <input name="volume" value={formData.volume} onChange={handleInputChange}
+                                    placeholder="Объем кузова..." required />
+                                {errors.volume && <p className='error-text'>{errors.volume}</p>}
+                            </div>
                             <select name="type" value={formData.type} onChange={handleInputChange} required>
                                 <option value="" disabled hidden>Тип кузова...</option>
                                 <option value="Бортовой">Бортовой</option>
@@ -57,6 +69,9 @@ export default function AutoparkPage() {
                 )}
                 {activeForm === 'delete' && (
                     <DeleteForm selectedId={selectedId} handleDeleteSubmit={handleDeleteSubmit} />
+                )}
+                {activeForm === 'orders' && (
+                    <OrdersForm selectedId={selectedId} itemOrders={autoOrders} />
                 )}
             </div>
         </div>
