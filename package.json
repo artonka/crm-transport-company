@@ -7,6 +7,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
+    "build": "echo build",
     "build:win": "SET GENERATE_SOURCEMAP=false && react-scripts build",
     "build:dev:win": "SET GENERATE_SOURCEMAP=true && react-scripts start"
   },
